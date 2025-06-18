@@ -10,12 +10,12 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
-      color: #333;
+      background: #0f0f0f;
+      color: #e0e0e0;
     }
 
     header {
-      background: #111;
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
       color: #fff;
       padding: 2rem;
       text-align: center;
@@ -32,19 +32,13 @@
       margin: auto;
     }
 
-    .intro {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .plan, .faq, .contacts {
+    .intro, .plan, .faq, .contacts, .testimonials {
       margin-top: 2rem;
-      background: #fff;
+      background: #1e1e1e;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.6s ease forwards;
     }
 
     .faq-cards {
@@ -56,18 +50,18 @@
 
     .card {
       flex: 1 1 calc(50% - 1rem);
-      background: linear-gradient(135deg, #ffffff, #f0f0f0);
+      background: linear-gradient(135deg, #263238, #37474f);
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
       transition: all 0.3s ease;
-      border-left: 6px solid #0077cc;
+      border-left: 6px solid #00bcd4;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 119, 204, 0.2);
-      border-left-color: #005fa3;
+      box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
+      border-left-color: #00acc1;
     }
 
     @media (max-width: 600px) {
@@ -79,18 +73,37 @@
     footer {
       text-align: center;
       padding: 2rem;
-      background: #111;
+      background: #0d47a1;
       color: #fff;
       margin-top: 2rem;
     }
 
     a {
-      color: #0077cc;
+      color: #4dd0e1;
       text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
+    }
+
+    .testimonials blockquote {
+      font-style: italic;
+      border-left: 4px solid #00bcd4;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #b2ebf2;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -143,6 +156,12 @@
       <p>Нет. Могу подобрать программу и без оборудования, с тренировками дома или на улице.</p>
     </div>
   </div>
+</section>
+
+<section class="testimonials">
+  <h2>Отзывы клиентов</h2>
+  <blockquote>“С Рамзилем я похудел на 12 кг за 3 месяца! Никогда не думал, что тренировки могут быть такими интересными.” — Артём, 29 лет</blockquote>
+  <blockquote>“Благодаря индивидуальному подходу удалось улучшить самочувствие и выносливость. Спасибо!” — Ирина, 34 года</blockquote>
 </section>
 
 <section class="contacts">
