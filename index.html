@@ -1,77 +1,202 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aitora</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Axionyx — Внедрение ИИ в бизнес</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(to right, #111827, #1f2937);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { color: #59f5d5; margin: 0; }
+    nav a {
+      color: #ccc;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { color: #59f5d5; }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: url('background.png') no-repeat center center/cover;
+      background-color: rgba(0,0,0,0.7);
+      background-blend-mode: overlay;
+    }
+    .hero h2 { font-size: 3rem; color: #59f5d5; }
+    .hero p { max-width: 720px; margin: auto; font-size: 1.2rem; color: #ccc; }
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+    h3 { color: #59f5d5; font-size: 1.8rem; }
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 14px rgba(0,0,0,0.4);
+    }
+    .card h4 { margin-top: 0; color: #fff; }
+    .footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    form {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin-top: 2rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      background: #59f5d5;
+      color: #000;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background: #3be0c3; }
+    a.button {
+      background: #59f5d5;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1>AI-решения для вашего бизнеса</h1>
-      <p>Боты, ассистенты и генераторы под ключ — от идеи до запуска</p>
-      <a href="#form" class="btn">Оставить заявку</a>
-    </div>
+  <header>
+    <h1>Axionyx</h1>
+    <nav>
+      <a href="#about">О нас</a>
+      <a href="#benefits">Преимущества</a>
+      <a href="#services">Услуги</a>
+      <a href="#contact">Контакты</a>
+    </nav>
   </header>
 
-  <section class="features">
-    <div class="container">
-      <h2>Что мы делаем</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>🤖 AI-боты</h3>
-          <p>Telegram, WhatsApp, web-боты. Умные и эффективные.</p>
-        </div>
-        <div class="card">
-          <h3>✍️ Генерация контента</h3>
-          <p>Посты, письма, описания — быстро и по задаче.</p>
-        </div>
-        <div class="card">
-          <h3>📊 Автоматизация</h3>
-          <p>CRM, Google Таблицы, Notion, базы данных.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="hero">
+    <h2>Внедряем ИИ в ваш бизнес</h2>
+    <p>Автоматизируем процессы, убираем рутину и усиливаем команды через GPT, боты, интеграции и аналитику.</p>
+    <a href="#contact" class="button">Оставить заявку</a>
+  </div>
 
-  <section id="form" class="contact">
-    <div class="container">
-      <h2>Оставить заявку</h2>
-      <form id="tg-form">
-        <input type="text" name="name" placeholder="Ваше имя" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="idea" placeholder="Опишите вашу идею..." required></textarea>
-        <button type="submit">Отправить</button>
-      </form>
-    </div>
-  </section>
+  
+  <div class="section">
+    <h3>Axionyx — искусственный интеллект, который работает на ваш бизнес</h3>
+    <p>
+      В мире, где данные становятся топливом прогресса, мы помогаем бизнесу превратить их в реальные решения. Axionyx внедряет современные технологии искусственного интеллекта, машинного обучения и автоматизации в процессы компаний — от анализа до прогнозирования, от поддержки клиентов до оптимизации логистики.
+    </p>
+    <p>
+      Мы не просто настраиваем нейросети — мы трансформируем мышление. Вместе с вами мы выявляем узкие места, проектируем индивидуальные AI-решения и внедряем их так, чтобы они начали приносить результат с первого дня.
+    </p>
+  </div>
 
-  <footer>
-    <p>© 2025 Aitora</p>
-  </footer>
+<div id="about" class="section">
+    <h3>Что мы делаем</h3>
+    <ul>
+      <li>Внедряем GPT, ботов и автоматизацию в конкретные задачи бизнеса</li>
+      <li>Убираем рутину: заявки, переписка, отчёты, CRM</li>
+      <li>Создаём связки между сервисами, таблицами, чатами</li>
+      <li>Объясняем просто, без сложных терминов</li>
+    </ul>
+  </div>
+
+  <div id="benefits" class="section">
+    <h3>Почему это работает</h3>
+    <ul>
+      <li>Быстрые отклики = больше продаж</li>
+      <li>Меньше ручного труда = больше времени на рост</li>
+      <li>Без найма дополнительных сотрудников</li>
+      <li>Гибкие решения под любой бюджет</li>
+    </ul>
+  </div>
+
+  <div id="services" class="section">
+    <h3>Примеры решений</h3>
+    <div class="grid">
+      <div class="card"><h4>Генерация контента</h4><p>ИИ пишет тексты, описания, письма — быстро и в нужном тоне.</p></div>
+      <div class="card"><h4>Чат-бот поддержки</h4><p>Отвечает 24/7 клиентам, экономит время сотрудников.</p></div>
+      <div class="card"><h4>Анализ документов</h4><p>ИИ читает PDF, выделяет важное, делает сводки и выводы.</p></div>
+    </div>
+  </div>
+
+  <div id="contact" class="section">
+    <h3>Оставьте заявку</h3>
+    <form id="tg-form">
+      <input type="text" id="name" placeholder="Имя" required />
+      <input type="email" id="email" placeholder="Почта" required />
+      <textarea id="brief" rows="4" minlength="100" placeholder="Краткое ТЗ (минимум 100 символов)" required></textarea>
+      <button type="submit">Отправить заявку</button>
+    </form>
+    <p style="margin-top:2rem;">Свяжитесь с нами напрямую:<br/>
+      Telegram: <a href="https://t.me/k0lyasik10" target="_blank">@k0lyasik10</a><br/>
+      Email: <a href="mailto:axionyx@yandex.ru">axionyx@yandex.ru</a>
+    </p>
+  </div>
+
+  <div class="footer">
+    © Axionyx, 2025 — ИИ, автоматизация и интеграции под ключ.
+  </div>
 
   <script>
     document.getElementById('tg-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const token = '8061339859:AAE3yC0YEFcohhYlRi12q_FEDAz34DgrED0';
-      const chat_id = '791844006';
-      const name = this.name.value;
-      const email = this.email.value;
-      const idea = this.idea.value;
-      const message = `📝 Новая заявка:\n\n👤 Имя: ${name}\n📧 Email: ${email}\n💡 Идея: ${idea}`;
-      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const brief = document.getElementById('brief').value;
+      const message = `💼 Новая заявка:\n👤 Имя: ${name}\n📧 Почта: ${email}\n📌 ТЗ: ${brief}`;
+      fetch('https://api.telegram.org/bot7730923161:AAEZ1PzqTUR-y8hcHb0XV3_uYmdoxaZn-9c/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chat_id, text: message })
-      }).then(res => res.json()).then(data => {
-        if (data.ok) {
+        body: JSON.stringify({ chat_id: '791844006', text: message })
+      }).then(res => {
+        if (res.ok) {
           alert('Заявка отправлена!');
           document.getElementById('tg-form').reset();
         } else {
-          alert('Ошибка: ' + data.description);
+          alert('Ошибка при отправке.');
         }
-      }).catch(err => alert('Ошибка: ' + err.message));
+      }).catch(() => alert('Ошибка сети.'));
     });
   </script>
 </body>
