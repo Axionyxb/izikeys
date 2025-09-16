@@ -1,416 +1,538 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Рыбный магазин «Начальник» — свежая рыба, доставка по городу</title>
-  <meta name="description" content="Свежая морская рыба и морепродукты. Доставка за 90 минут. Оформляйте заказ в один клик через Telegram: @axionyxgpt." />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="description" content="КГЭУ — современный университет: поступление, программы, наука, кампус. Энергия знаний — твоя сила." />
+  <title>КГЭУ — Энергия знаний</title>
+
+  <!-- Fonts (optional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      /* SEA PALETTE */
-      --deep: #021926;         /* глубокий океан */
-      --reef: #063a4b;         /* риф */
-      --wave: #0b5c73;         /* волна */
-      --foam: #10a8c7;         /* пена */
-      --lagoon: #22d3ee;       /* лагуна */
-      --sand: #e7faff;         /* светлый текст */
-      --muted: #bfe8f2;        /* приглушённый текст */
-      --glass: rgba(255,255,255,0.07);
-      --stroke: rgba(255,255,255,0.15);
-      --shadow: 0 12px 40px rgba(2, 25, 38, .45);
-      --radius: 18px;
-      --radius-lg: 26px;
-      --container: 1200px;
+      --bg:#0b0f1a;
+      --surface:#0f1629;
+      --muted:#8fa1c1;
+      --primary:#6ee7ff;
+      --accent:#a78bfa;
+      --text:#e8f0ff;
+      --ring: 0 0 0 2px rgba(110,231,255,.35),0 0 25px rgba(167,139,250,.25);
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --grad: radial-gradient(1200px 600px at 80% -10%, rgba(110,231,255,.12), transparent 60%),
+              radial-gradient(900px 500px at 10% 0%, rgba(167,139,250,.10), transparent 60%),
+              linear-gradient(180deg, #0b0f1a, #0a0d18 60%);
     }
-    *{ box-sizing:border-box }
-    html,body{ height:100% }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--sand);
-      background:
-        radial-gradient(1200px 700px at 15% -10%, rgba(34,211,238,.22), transparent 60%),
-        radial-gradient(800px 600px at 85% 0%, rgba(16,168,199,.18), transparent 60%),
-        linear-gradient(180deg, var(--deep) 0%, var(--reef) 50%, var(--wave) 100%);
+      margin:0;
+      font-family: "Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:var(--grad);
+      overflow-x:hidden;
     }
-    a{ color:inherit; text-decoration:none }
-    .container{ max-width: var(--container); margin:0 auto; padding:0 20px; }
 
     /* Header */
-    header{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
-      background: rgba(2,25,38,.55); border-bottom:1px solid var(--stroke); }
-    .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-    .brand{ display:flex; gap:12px; align-items:center; font-weight:800; letter-spacing:.3px; }
-    .logo{ width:40px; height:40px; border-radius:12px; background: conic-gradient(from 210deg, var(--lagoon), var(--foam), var(--wave)); box-shadow: var(--shadow); position:relative; }
-    .logo:after{ content:""; position:absolute; right:8px; top:7px; width:8px; height:8px; background:white; border-radius:50%; }
-
-    nav a{ padding:10px 12px; border-radius:12px; opacity:.95 }
-    nav a:hover{ background: var(--glass) }
-
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:14px; border:0; cursor:pointer;
-      color:#00212b; font-weight:800;
-      background: linear-gradient(135deg, var(--foam), var(--lagoon));
-      box-shadow: var(--shadow);
+    .header{
+      position: sticky; top:0; z-index: 40;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(15,22,41,.85), rgba(15,22,41,.35));
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .btn.ghost{ background: transparent; color: var(--sand); border:1px solid var(--stroke); }
-    .btn.small{ padding:9px 14px; border-radius:12px; font-weight:700 }
+    .container{
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 16px 0;
+    }
+    .logo{
+      display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+    }
+    .logo__mark{
+      width:36px; height:36px; border-radius:10px;
+      background: conic-gradient(from 30deg, var(--primary), var(--accent), var(--primary));
+      box-shadow: var(--ring);
+    }
+    .logo__title{
+      font-family:"Montserrat", sans-serif;
+      font-weight:800; letter-spacing: .5px; font-size: 1.1rem;
+      line-height: 1;
+    }
+    .menu{display:flex; gap:20px; align-items:center}
+    .menu a{
+      color:var(--muted); text-decoration:none; font-weight:600; font-size:.95rem;
+      padding:8px 10px; border-radius: 10px; transition:all .2s ease;
+    }
+    .menu a:hover{ color:var(--text); background: rgba(255,255,255,.06) }
+    .menu__cta{
+      margin-left:8px; background: linear-gradient(135deg, var(--primary), var(--accent));
+      color:#0a0d18 !important; padding:10px 14px; border-radius:12px; box-shadow: var(--shadow);
+    }
+    .burger{display:none; background:none; border:none; color:var(--text); font-size:1.4rem;}
+
+    @media(max-width:860px){
+      .burger{display:block}
+      .menu{display:none}
+      .menu--mobile{display:flex; flex-direction:column; gap:10px; padding:12px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:rgba(10,13,24,.75); margin-top:8px}
+      .menu--mobile a{display:block}
+    }
 
     /* Hero */
-    .hero{ padding:60px 0 40px; }
-    .hero .inner{ display:grid; grid-template-columns: 1.1fr 1fr; gap:30px; align-items:center; }
-    .badge{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--stroke); border-radius:999px; color:var(--muted); margin-bottom: 14px; background:rgba(255,255,255,.03)}
-    .h1{ font-size: clamp(30px, 4.8vw, 60px); line-height:1.04; margin:0 0 14px; letter-spacing:-.02em }
-    .lead{ color: var(--muted); font-size: clamp(16px, 1.8vw, 18px); margin:0 0 26px }
-    .fish-hero{ border-radius: var(--radius-lg); border:1px solid var(--stroke); aspect-ratio: 4/3; background: url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=1600&auto=format&fit=crop') center/cover; box-shadow: var(--shadow); }
+    .hero{
+      position:relative; padding: 90px 0 64px;
+      overflow: clip;
+    }
+    .hero__grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:32px; align-items:center}
+    .hero__title{
+      font-family:"Montserrat",sans-serif; font-weight:800; font-size:min(8vw,56px); line-height:1.05;
+      margin:0 0 16px; letter-spacing:.4px;
+    }
+    .hero__subtitle{color:var(--muted); font-size:1.1rem; margin-bottom:24px}
+    .actions{display:flex; gap:14px; flex-wrap:wrap}
+    .btn{
+      cursor:pointer; border:none; padding:14px 18px; border-radius:14px;
+      font-weight:700; letter-spacing:.2px; font-size: .98rem;
+      transition: transform .08s ease, filter .2s;
+    }
+    .btn:active{ transform: translateY(1px) }
+    .btn--primary{ background: linear-gradient(135deg, var(--primary), var(--accent)); color:#0a0d18 }
+    .btn--ghost{ background: transparent; color: var(--text); border:1px solid rgba(255,255,255,.15) }
+    .hero__panel{
+      background: radial-gradient(120% 100% at 60% -10%, rgba(110,231,255,.15), transparent 60%), rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius); padding:20px; box-shadow: var(--shadow);
+    }
+    .stats{display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:22px}
+    .stat{background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px}
+    .stat b{display:block; font-size:1.4rem; margin-bottom:6px}
 
-    /* Sections */
-    section{ padding: 60px 0 }
-    .sec-title{ display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom: 20px }
-    .sec-title h2{ margin:0; font-size: clamp(22px, 3vw, 36px) }
-    .muted{ color: var(--muted) }
+    @media(max-width:860px){
+      .hero__grid{grid-template-columns:1fr}
+    }
 
-    /* Cards */
-    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px }
-    .card{ grid-column: span 4; background: var(--glass); border:1px solid var(--stroke); border-radius: var(--radius); overflow:hidden; display:flex; flex-direction: column; }
-    .card img{ width:100%; height: 190px; object-fit: cover; }
-    .card .body{ padding: 14px; display:flex; gap:12px; flex-direction:column; }
-    .price{ font-weight:800; color: #c7fff7; }
-    .qty{ display:flex; gap: 10px; align-items:center }
-    .qty input{ width:80px; padding:9px 10px; border-radius: 10px; border:1px solid var(--stroke); background: rgba(255,255,255,.05); color: var(--sand) }
+    /* Section generic */
+    section{ padding: 56px 0 }
+    .section__head{display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:24px}
+    .h2{
+      font-family:"Montserrat",sans-serif; margin:0; font-size:min(6vw,36px); line-height:1.1;
+      letter-spacing: .3px;
+    }
+    .lead{ color:var(--muted); max-width: 760px }
 
-    /* Stats */
-    .stats{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top: 18px; }
-    .stat{ background: rgba(255,255,255,.06); padding:14px; border-radius: 16px; border:1px solid var(--stroke); text-align:center }
-    .stat b{ display:block; font-size: 22px }
+    /* About */
+    .cards{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
+    .card{ background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px; transition: transform .15s ease, background .2s }
+    .card:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06) }
+    .card__icon{ width:44px; height:44px; border-radius:12px; display:grid; place-items:center; margin-bottom:10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent)); color:#0a0d18; font-weight:900 }
+    .card h3{ margin: 6px 0 8px }
+    .card p{ color:var(--muted); margin:0 }
 
-    /* Steps */
-    .steps{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px }
-    .step{ background: var(--glass); border:1px solid var(--stroke); border-radius: var(--radius); padding:18px }
+    @media(max-width:900px){ .cards{ grid-template-columns: 1fr } }
 
-    /* Checkout */
-    .checkout{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 20px }
-    .panel{ background: var(--glass); border:1px solid var(--stroke); border-radius: var(--radius-lg); padding: 18px }
-    .list{ display:flex; flex-direction: column; gap:10px }
-    .row{ display:grid; grid-template-columns: 1fr 100px 120px 110px; gap: 10px; align-items:center; background: rgba(255,255,255,.04); padding:10px; border-radius: 12px; border:1px dashed var(--stroke) }
-    .row small{ color: var(--muted) }
-    .totals{ display:flex; align-items:center; justify-content:space-between; margin-top: 12px }
-    .form{ display:grid; gap: 10px }
-    .input{ width:100%; padding:12px 14px; border-radius: 12px; border:1px solid var(--stroke); background: rgba(255,255,255,.05); color: var(--sand) }
-    .help{ font-size: 13px; color: var(--muted) }
+    /* Programs */
+    .programs{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
+    .program{
+      border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(110,231,255,.06), rgba(167,139,250,.06));
+    }
+    .program__header{ padding:18px; background: rgba(255,255,255,.04); display:flex; align-items:center; justify-content:space-between }
+    .pill{ font-weight:700; font-size:.8rem; padding:6px 10px; border-radius:999px; background: rgba(255,255,255,.08); color:var(--primary) }
+    .program__body{ padding:18px }
+    .program__body ul{ margin:0; padding-left:18px }
+    .program__body li{ margin:6px 0; color:var(--muted) }
+
+    @media(max-width:900px){ .programs{ grid-template-columns: 1fr } }
+
+    /* Timeline (Admissions) */
+    .timeline{ display:grid; gap:14px; }
+    .step{
+      display:grid; grid-template-columns: 56px 1fr; gap:14px; align-items:start;
+      background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:14px;
+    }
+    .step__num{
+      width:56px; height:56px; border-radius:14px; display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 30% 20%, var(--primary), var(--accent));
+      color:#0a0d18; font-weight:800; font-size:1.1rem;
+      box-shadow: var(--ring);
+    }
+    .step h4{ margin:4px 0 6px }
+    .step p{ margin:0; color:var(--muted) }
+
+    /* News */
+    .news{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
+    .news__item{
+      border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+    .news__cover{
+      height:160px; background:
+      radial-gradient(60% 60% at 40% 40%, rgba(110,231,255,.5), transparent 60%),
+      radial-gradient(60% 60% at 60% 60%, rgba(167,139,250,.5), transparent 60%),
+      linear-gradient(135deg, #0f1629, #18223e);
+    }
+    .news__body{ padding:14px }
+    .news__meta{ font-size:.8rem; color:var(--muted); margin-bottom:6px }
+
+    @media(max-width:900px){ .news{ grid-template-columns: 1fr } }
+
+    /* CTA */
+    .cta{
+      background: linear-gradient(135deg, rgba(110,231,255,.08), rgba(167,139,250,.10));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 24px; text-align:center; box-shadow: var(--shadow);
+    }
+    .cta h3{ margin-top:0 }
+    .cta p{ color:var(--muted) }
 
     /* Footer */
-    footer{ padding: 40px 0 60px; color: var(--muted); border-top:1px solid var(--stroke); background: rgba(255,255,255,.04) }
-
-    /* Floating */
-    .floating{ position: fixed; right: 16px; bottom: 16px; z-index: 50; display:flex; gap:10px; align-items:center }
-    .bubble{ background: var(--glass); border:1px solid var(--stroke); padding:10px 12px; border-radius: 14px }
-
-    @media (max-width: 980px){
-      .hero .inner{ grid-template-columns: 1fr }
-      .checkout{ grid-template-columns: 1fr }
-      .grid .card{ grid-column: span 6 }
-      .steps{ grid-template-columns: 1fr }
+    footer{
+      margin-top: 48px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background: rgba(10,13,24,.7);
     }
-    @media (max-width: 640px){
-      nav{ display:none }
-      .grid .card{ grid-column: span 12 }
-      .row{ grid-template-columns: 1fr 80px 100px 100px }
-      .badge{ font-size: 13px }
+    .footer{
+      padding: 28px 0;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:center;
     }
+    .footer__brand{ color:var(--muted) }
+    .footer a{ color: var(--primary); text-decoration: none }
+    @media(max-width:860px){
+      .footer{ grid-template-columns: 1fr; text-align:center }
+    }
+
+    /* Scroll reveal */
+    [data-animate]{
+      opacity:0; transform: translateY(10px); transition: all .5s cubic-bezier(.2,.65,.2,1);
+    }
+    [data-animate].in{ opacity:1; transform: translateY(0) }
+
+    /* Smooth anchors */
+    html{ scroll-behavior: smooth }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <div class="brand"><span class="logo" aria-hidden="true"></span> Рыбный магазин «Начальник»</div>
-      <nav>
-        <a href="#catalog">Каталог</a>
-        <a href="#delivery">Доставка</a>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a class="logo" href="#top" aria-label="КГЭУ — на главную">
+          <div class="logo__mark" aria-hidden="true"></div>
+          <div class="logo__title">КГЭУ • Университет</div>
+        </a>
+
+        <button class="burger" id="burger" aria-label="Открыть меню">☰</button>
+
+        <nav class="menu" id="menu">
+          <a href="#about">О нас</a>
+          <a href="#programs">Программы</a>
+          <a href="#admissions">Поступление</a>
+          <a href="#research">Наука</a>
+          <a href="#news">Новости</a>
+          <a href="#contacts" class="menu__cta">Поступить</a>
+        </nav>
+      </div>
+
+      <!-- Mobile menu -->
+      <nav class="menu menu--mobile" id="menuMobile" hidden>
         <a href="#about">О нас</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#programs">Программы</a>
+        <a href="#admissions">Поступление</a>
+        <a href="#research">Наука</a>
+        <a href="#news">Новости</a>
+        <a href="#contacts" class="menu__cta">Поступить</a>
       </nav>
-      <a id="headerOrder" class="btn small" href="#checkout">Заказать в Telegram</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container inner">
-      <div>
-        <div class="badge">Свежая поставка ежедневно • Температурная цепочка • Сертификаты</div>
-        <h1 class="h1">Морская рыба и морепродукты<br/> с доставкой по городу за 90 минут</h1>
-        <p class="lead">Онлайн‑лавка с реальной точкой на рынке. Честный вес, лёд и вакуум. Нажмите кнопку — заявка уйдёт в Telegram к владельцу <b>@axionyxgpt</b>.</p>
-        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-          <a class="btn" href="#catalog">Посмотреть каталог</a>
-          <a class="btn ghost" href="#checkout">Оформить заказ</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><b>60+ видов</b><span class="muted">рыбы и морепродуктов</span></div>
-          <div class="stat"><b>4.95★</b><span class="muted">рейтинг покупателей</span></div>
-          <div class="stat"><b>с 5:00</b><span class="muted">на рынке ежедневно</span></div>
-        </div>
-      </div>
-      <div class="fish-hero" aria-label="Фотография свежей морской рыбы"></div>
-    </div>
-  </section>
-
-  <!-- Catalog -->
-  <section id="catalog">
-    <div class="container">
-      <div class="sec-title">
-        <h2>Каталог — сегодня в наличии</h2>
-        <span class="muted">Прайс обновлён <span id="today"></span></span>
-      </div>
-      <div id="grid" class="grid"></div>
-    </div>
-  </section>
-
-  <!-- Steps -->
-  <section>
-    <div class="container">
-      <div class="sec-title"><h2>Как мы работаем</h2></div>
-      <div class="steps">
-        <div class="step"><b>1. Выбираете</b><br/><span class="muted">Добавляйте позиции в корзину, укажите вес/количество.</span></div>
-        <div class="step"><b>2. Подтверждаем</b><br/><span class="muted">Проверяем наличие и отправляем итоговый вес и сумму.</span></div>
-        <div class="step"><b>3. Доставка/самовывоз</b><br/><span class="muted">Привезём за 90 минут или забирайте у нас на точке.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Delivery -->
-  <section id="delivery">
-    <div class="container">
-      <div class="sec-title"><h2>Доставка</h2><span class="muted">Холодовая цепочка соблюдается</span></div>
-      <div class="grid">
-        <div class="card" style="grid-column: span 6;">
-          <div class="body">
-            <b>По городу — от 300 ₽</b>
-            <span class="muted">Бесплатно от 3000 ₽. 10:00–21:00. Курьеры с термосумками и льдом.</span>
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <h1 class="hero__title" data-animate>
+            Энергия знаний — твоя сила
+          </h1>
+          <p class="hero__subtitle" data-animate>
+            КГЭУ — место, где инженерное мышление встречается с творчеством. Современные лаборатории, сильные наставники, реальные проекты с индустрией.
+          </p>
+          <div class="actions" data-animate>
+            <a class="btn btn--primary" href="#admissions">Поступить</a>
+            <a class="btn btn--ghost" href="#programs">Смотреть программы</a>
+          </div>
+          <div class="stats" data-animate>
+            <div class="stat"><b>14 000+</b> студентов</div>
+            <div class="stat"><b>120+</b> программ</div>
+            <div class="stat"><b>50+</b> лабораторий</div>
           </div>
         </div>
-        <div class="card" style="grid-column: span 6;">
-          <div class="body">
-            <b>Самовывоз</b>
-            <span class="muted">Центральный рынок, павильон F‑12. Ежедневно 8:00–20:00.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Checkout -->
-  <section id="checkout">
-    <div class="container">
-      <div class="sec-title"><h2>Оформление заказа</h2><span class="muted">Заявка уйдёт в Telegram: <b>@axionyxgpt</b></span></div>
-      <div class="checkout">
-        <div class="panel">
-          <h3 style="margin-top:0">Корзина</h3>
-          <div id="cartList" class="list"></div>
-          <div class="totals">
-            <div class="muted">Итого позиций: <b id="totalItems">0</b></div>
-            <div><b id="totalPrice">0 ₽</b></div>
-          </div>
-        </div>
-        <div class="panel">
-          <h3 style="margin-top:0">Ваши данные</h3>
-          <form id="orderForm" class="form">
-            <input class="input" name="name" placeholder="Имя" required />
-            <input class="input" name="phone" placeholder="Телефон" required />
-            <input class="input" name="address" placeholder="Адрес доставки (или 'самовывоз')" required />
-            <input class="input" name="time" placeholder="Когда доставить (сегодня/завтра, время)" />
-            <textarea class="input" name="comment" rows="3" placeholder="Комментарий к заказу (почистить, порезать и т.д.)"></textarea>
-            <div class="help">Нажмите кнопку — Telegram откроется с готовой заявкой. Отправьте её пользователю <b>@axionyxgpt</b>.</div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-              <a id="tgDeep" class="btn" href="#">Отправить в Telegram</a>
-              <a id="tgWeb" class="btn ghost" href="#">Через Web Telegram</a>
+        <aside class="hero__panel" aria-label="Ключевые направления" data-animate>
+          <div class="cards" style="grid-template-columns:1fr;gap:12px">
+            <div class="card">
+              <div class="card__icon">Э</div>
+              <h3>Энергетика</h3>
+              <p>Будущее низкоуглеродной генерации, электрические сети, цифровая подстанция.</p>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="sec-title"><h2>Кто мы</h2></div>
-      <div class="grid">
-        <div class="card" style="grid-column: span 7;">
-          <div class="body">
-            <b>Мы — «Начальник»</b>
-            <p class="muted">Я — начальник рыбного магазина и тот самый продавец, который знает, где рыба пожирнее, а где — посвежее. Каждый день лично выбираю товар на оптовом рынке на рассвете. Упаковываем как для себя и привозим быстро, чтобы вы готовили вкусно.</p>
-            <ul class="muted" style="margin:0 0 6px 18px;">
-              <li>Сертификаты и ветеринарные документы.</li>
-              <li>Чистка, разделка, стейки — по запросу.</li>
-              <li>Оплата картой/наличными, чек 54‑ФЗ.</li>
-            </ul>
+            <div class="card">
+              <div class="card__icon">ИТ</div>
+              <h3>Цифровые технологии</h3>
+              <p>ИИ и анализ данных, кибербезопасность, управление промышленными процессами.</p>
+            </div>
+            <div class="card">
+              <div class="card__icon">ЭК</div>
+              <h3>Экономика и управление</h3>
+              <p>Энергоменеджмент, экономическая эффективность, устойчивое развитие отраслей.</p>
+            </div>
           </div>
-        </div>
-        <div class="card" style="grid-column: span 5; overflow:hidden">
-          <img src="https://images.unsplash.com/photo-1525695230005-efd074980869?q=80&w=1600&auto=format&fit=crop" alt="Лавка со свежей морской рыбой" />
-        </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contacts -->
-  <section id="contacts">
-    <div class="container">
-      <div class="sec-title"><h2>Контакты</h2></div>
-      <div class="grid">
-        <div class="card" style="grid-column: span 6;">
-          <div class="body">
-            <b>Адрес</b>
-            <div class="muted">Центральный рынок, павильон F‑12</div>
-            <b style="margin-top:8px; display:block">График</b>
-            <div class="muted">Ежедневно 8:00–20:00</div>
-          </div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2" data-animate>О университете</h2>
+          <p class="lead" data-animate>Мы создаём среду, где можно пробовать, ошибаться и снова пробовать — до результата. Карьерные сервисы, проекты с компаниями, студенческие инициативы.</p>
         </div>
-        <div class="card" style="grid-column: span 6;">
-          <div class="body">
-            <b>Telegram</b>
-            <div class="muted">Пишите владельцу: <a href="https://t.me/axionyxgpt" target="_blank">@axionyxgpt</a></div>
-            <div style="margin-top:10px"><a class="btn small" href="#checkout">Оформить заказ</a></div>
+
+        <div class="cards" data-animate>
+          <div class="card">
+            <div class="card__icon">∞</div>
+            <h3>Практика с первого курса</h3>
+            <p>Проектные школы и участие в реальных кейсах индустрии уже в первый год.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">⚡</div>
+            <h3>Инженерная культура</h3>
+            <p>Современные лаборатории и мейкерспейсы, где идеи превращаются в прототипы.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">✦</div>
+            <h3>Комьюнити и поддержка</h3>
+            <p>Тьюторы, наставники, карьерные консультации и стажировки у партнёров.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- PROGRAMS -->
+    <section id="programs">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2" data-animate>Программы обучения</h2>
+          <p class="lead" data-animate>Выбирай путь — от фундаментальной энергетики до прикладного ИИ. Все программы адаптированы под запросы отрасли.</p>
+        </div>
+
+        <div class="programs" data-animate>
+          <article class="program">
+            <div class="program__header">
+              <h3>Бакалавриат</h3><span class="pill">4 года</span>
+            </div>
+            <div class="program__body">
+              <ul>
+                <li>Электроэнергетика и электротехника</li>
+                <li>Информационные системы и технологии</li>
+                <li>Прикладная математика и информатика</li>
+                <li>Экономика энергетики</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="program">
+            <div class="program__header">
+              <h3>Магистратура</h3><span class="pill">2 года</span>
+            </div>
+            <div class="program__body">
+              <ul>
+                <li>Цифровые сети и умная генерация</li>
+                <li>Аналитика данных в энергетике</li>
+                <li>Кибербезопасность АСУ ТП</li>
+                <li>Управление энергоэффективностью</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="program">
+            <div class="program__header">
+              <h3>Аспирантура</h3><span class="pill">3–4 года</span>
+            </div>
+            <div class="program__body">
+              <ul>
+                <li>Электроэнергетические системы</li>
+                <li>Теплоэнергетика и теплотехника</li>
+                <li>Информатика и вычислительная техника</li>
+                <li>Экономика и управление отраслями</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSIONS -->
+    <section id="admissions">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2" data-animate>Поступление</h2>
+          <p class="lead" data-animate>Простой путь от заявки до зачисления. Следуй шагам — и увидимся в кампусе.</p>
+        </div>
+
+        <div class="timeline" data-animate>
+          <div class="step">
+            <div class="step__num">1</div>
+            <div>
+              <h4>Выбери программу</h4>
+              <p>Изучи направления и профильные предметы. Собери портфолио достижений.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <div>
+              <h4>Подай документы онлайн</h4>
+              <p>Подготовь паспорт, аттестат/диплом, результаты ЕГЭ/вступительных испытаний.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <div>
+              <h4>Пройди конкурс</h4>
+              <p>Следи за конкурсными списками и сроками, прими участие в собеседовании (если требуется).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">4</div>
+            <div>
+              <h4>Зачисление</h4>
+              <p>Подтверди согласие на зачисление, подпиши договор (при необходимости) и добро пожаловать!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2" data-animate>Наука и проекты</h2>
+          <p class="lead" data-animate>От «умных» сетей до водородной энергетики — мы делаем исследования, на которые опираются компании.</p>
+        </div>
+
+        <div class="cards" data-animate>
+          <div class="card">
+            <div class="card__icon">AI</div>
+            <h3>Цифровые двойники</h3>
+            <p>Моделирование энергосистем с предсказанием аварий и оптимизацией режимов.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">H₂</div>
+            <h3>Водородные технологии</h3>
+            <p>Материалы, безопасность, хранение и транспортировка для новой экономики.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">EV</div>
+            <h3>Электротранспорт</h3>
+            <p>Силовая электроника, зарядная инфраструктура и интеграция в сеть.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2" data-animate>Новости</h2>
+          <p class="lead" data-animate>Короткая лента — чтобы быть в курсе. Подставь свои материалы в карточки.</p>
+        </div>
+
+        <div class="news" data-animate>
+          <article class="news__item">
+            <div class="news__cover" role="img" aria-label="Обложка новости"></div>
+            <div class="news__body">
+              <div class="news__meta">15 сентября • Кампус</div>
+              <h3>Открылась новая лаборатория по ИИ в энергетике</h3>
+              <p>Студенты и исследователи получили доступ к стендам для цифровых подстанций и моделирования сетей.</p>
+            </div>
+          </article>
+          <article class="news__item">
+            <div class="news__cover" role="img" aria-label="Обложка новости"></div>
+            <div class="news__body">
+              <div class="news__meta">10 сентября • Олимпиады</div>
+              <h3>Запуск инженерного хакатона PowerHack</h3>
+              <p>Сбор команд, задачи от партнёров и призы для лучших проектов по энергоэффективности.</p>
+            </div>
+          </article>
+          <article class="news__item">
+            <div class="news__cover" role="img" aria-label="Обложка новости"></div>
+            <div class="news__body">
+              <div class="news__meta">5 сентября • Карьера</div>
+              <h3>Программа стажировок с компаниями отрасли</h3>
+              <p>Реальные кейсы, наставники и возможность трудоустройства после защиты проекта.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contacts">
+      <div class="container">
+        <div class="cta" data-animate>
+          <h3>Готов присоединиться?</h3>
+          <p>Задай вопрос приёмной комиссии или оставь заявку — мы свяжемся и подскажем следующий шаг.</p>
+          <div class="actions" style="justify-content:center; margin-top:10px">
+            <a class="btn btn--primary" href="mailto:admissions@example.edu">Написать в приёмную</a>
+            <a class="btn btn--ghost" href="tel:+7-000-000-00-00">Позвонить</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-      <div>© <span id="year"></span> Рыбный магазин «Начальник». Все права защищены.</div>
-      <div>Морская свежесть • 0…+2°C</div>
+    <div class="container footer">
+      <div class="footer__brand">
+        © <span id="year"></span> КГЭУ • Университет. Сделано с заботой об абитуриентах и студентах.
+      </div>
+      <div>
+        <a href="#top">Наверх</a> ·
+        <a href="#about">О нас</a> ·
+        <a href="#programs">Программы</a> ·
+        <a href="#admissions">Поступление</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Floating cart -->
-  <div class="floating">
-    <div class="bubble">Корзина: <b id="miniCount">0</b> • <b id="miniTotal">0 ₽</b></div>
-    <a class="btn small" href="#checkout">Оформить</a>
-  </div>
-
   <script>
-    const TG_USER = 'axionyxgpt';
-
-    const PRODUCTS = [
-      {id:'salmon', name:'Лосось атлантический', price:1390, unit:'₽/кг', img:'https://images.unsplash.com/photo-1604908553980-0b9177f06a6b?q=80&w=1600&auto=format&fit=crop', desc:'Филе премиум. Охлаждённый.'},
-      {id:'trout', name:'Форель радужная', price:990, unit:'₽/кг', img:'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1600&auto=format&fit=crop', desc:'Потрошёная, на льду.'},
-      {id:'seabass', name:'Сибас', price:1190, unit:'₽/кг', img:'https://images.unsplash.com/photo-1604908554157-c46a2f8036f1?q=80&w=1600&auto=format&fit=crop', desc:'Целая рыба 400–600 г.'},
-      {id:'dorada', name:'Дорадо', price:1150, unit:'₽/кг', img:'https://images.unsplash.com/photo-1560785496-3c9c9a38a3a7?q=80&w=1600&auto=format&fit=crop', desc:'Средний размер, Средиземноморье.'},
-      {id:'cod', name:'Треска филе', price:920, unit:'₽/кг', img:'https://images.unsplash.com/photo-1625944527989-04526f487a33?q=80&w=1600&auto=format&fit=crop', desc:'Без костей, охлаждённая.'},
-      {id:'shrimp', name:'Креветка 16/20', price:1450, unit:'₽/кг', img:'https://images.unsplash.com/photo-1527603818256-4e2d07f84e2c?q=80&w=1600&auto=format&fit=crop', desc:'Крупная. Варено-мороженая.'},
-      {id:'mussels', name:'Мидии створка', price:690, unit:'₽/кг', img:'https://images.unsplash.com/photo-1484980972926-edee96e0960d?q=80&w=1600&auto=format&fit=crop', desc:'На пару — идеально.'},
-      {id:'herring', name:'Селёдка малосольная', price:380, unit:'₽/шт', img:'https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=1600&auto=format&fit=crop', desc:'Слабого посола.'}
-    ];
-
-    const state = { cart: JSON.parse(localStorage.getItem('cart-v1')||'{}') };
-
-    const grid = document.getElementById('grid');
-    const cartList = document.getElementById('cartList');
-    const totalItems = document.getElementById('totalItems');
-    const totalPrice = document.getElementById('totalPrice');
-    const miniCount = document.getElementById('miniCount');
-    const miniTotal = document.getElementById('miniTotal');
-
-    function money(n){ return new Intl.NumberFormat('ru-RU').format(n) + ' ₽'; }
-
-    function renderCatalog(){
-      grid.innerHTML = PRODUCTS.map(p => `
-        <article class="card">
-          <img alt="${p.name}" src="${p.img}"/>
-          <div class="body">
-            <div style="display:flex; justify-content:space-between; gap:10px; align-items:start;">
-              <div>
-                <div style="font-weight:700">${p.name}</div>
-                <div class="muted" style="font-size:14px">${p.desc}</div>
-              </div>
-              <div class="price">${money(p.price)}</div>
-            </div>
-            <div class="qty">
-              <input type="number" min="0.3" step="0.1" value="1" id="qty-${p.id}" aria-label="Количество ${p.name}"> <span class="muted">кг/шт</span>
-              <button class="btn small" onclick="addToCart('${p.id}')">В корзину</button>
-            </div>
-          </div>
-        </article>
-      `).join('');
-    }
-
-    function addToCart(id){
-      const p = PRODUCTS.find(x=>x.id===id);
-      const qty = parseFloat(document.getElementById('qty-'+id)?.value || '1');
-      const item = state.cart[id] || {id, name:p.name, price:p.price, qty:0};
-      item.qty = Math.max(0, (item.qty || 0) + qty);
-      state.cart[id] = item; persist(); renderCart();
-      window.location.hash = '#checkout';
-    }
-
-    function removeFromCart(id){ delete state.cart[id]; persist(); renderCart(); }
-
-    function changeQty(id, value){
-      const item = state.cart[id]; if(!item) return; item.qty = Math.max(0, parseFloat(value)||0);
-      if(item.qty===0) delete state.cart[id]; persist(); renderCart();
-    }
-
-    function cartArray(){ return Object.values(state.cart); }
-
-    function renderCart(){
-      const items = cartArray();
-      cartList.innerHTML = items.length? items.map(x => `
-        <div class="row">
-          <div><b>${x.name}</b><br><small class="muted">${money(x.price)} · ${x.qty.toFixed(2)} кг/шт</small></div>
-          <div style="text-align:right">${money(Math.round(x.price*x.qty))}</div>
-          <div><input class="input" type="number" min="0" step="0.1" value="${x.qty.toFixed(2)}" onchange="changeQty('${x.id}', this.value)"></div>
-          <div><button class="btn small" style="width:100%" onclick="removeFromCart('${x.id}')">Убрать</button></div>
-        </div>`).join('')
-        : '<div class="muted">Корзина пуста. Добавьте что-нибудь из каталога.</div>';
-      const sum = items.reduce((s,x)=> s + x.price*x.qty, 0);
-      totalItems.textContent = items.length;
-      totalPrice.textContent = money(Math.round(sum));
-      miniCount.textContent = items.length; miniTotal.textContent = money(Math.round(sum));
-    }
-
-    function persist(){ localStorage.setItem('cart-v1', JSON.stringify(state.cart)); }
-
-    function buildMessage(form){
-      const items = cartArray();
-      const sum = items.reduce((s,x)=> s + x.price*x.qty, 0);
-      let text = `Заявка с сайта «Начальник»%0A`;
-      text += items.length ? items.map((x,i)=> `${i+1}. ${x.name} — ${x.qty.toFixed(2)} кг/шт × ${x.price} = ${Math.round(x.price*x.qty)}₽`).join('%0A') : 'Корзина: пусто';
-      text += `%0AИтого: ${Math.round(sum)}₽%0A`;
-      text += `%0AИмя: ${encodeURIComponent(form.name.value)}%0A`;
-      text += `Телефон: ${encodeURIComponent(form.phone.value)}%0A`;
-      text += `Адрес/самовывоз: ${encodeURIComponent(form.address.value)}%0A`;
-      if(form.time.value) text += `Время: ${encodeURIComponent(form.time.value)}%0A`;
-      if(form.comment.value) text += `Комментарий: ${encodeURIComponent(form.comment.value)}%0A`;
-      text += `%0AСайт: ${encodeURIComponent(location.href)}`;
-      return text;
-    }
-
-    function updateTGLinks(){
-      const form = document.getElementById('orderForm');
-      const text = buildMessage(form);
-      const deep = `tg://resolve?domain=${TG_USER}&text=${text}`;
-      const web = `https://t.me/${TG_USER}?text=${text}`;
-      document.getElementById('tgDeep').href = deep;
-      document.getElementById('tgWeb').href = web;
-    }
-
-    // Init
-    renderCatalog();
-    renderCart();
-    document.getElementById('today').textContent = new Date().toLocaleDateString('ru-RU');
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.getElementById('orderForm').addEventListener('input', updateTGLinks);
-    document.getElementById('orderForm').addEventListener('change', updateTGLinks);
-    document.getElementById('orderForm').addEventListener('submit', (e)=>{ e.preventDefault(); updateTGLinks(); location.href = document.getElementById('tgWeb').href; });
-    document.getElementById('tgDeep').addEventListener('click', updateTGLinks);
-    document.getElementById('tgWeb').addEventListener('click', updateTGLinks);
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const menuMobile = document.getElementById('menuMobile');
+    burger?.addEventListener('click', () => {
+      const isHidden = menuMobile.hasAttribute('hidden');
+      if(isHidden){ menuMobile.removeAttribute('hidden') } else { menuMobile.setAttribute('hidden','') }
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target) }
+      })
+    },{threshold:.18});
+    document.querySelectorAll('[data-animate]').forEach(el=>obs.observe(el));
   </script>
 </body>
 </html>
